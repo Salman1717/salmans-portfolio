@@ -17,7 +17,13 @@ export function ProjectsSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
               <TrendingUp className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-foreground/80">Featured Work</span>
@@ -28,12 +34,32 @@ export function ProjectsSection() {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Showcasing innovative mobile apps with AR, ML, and modern iOS development
             </p>
-          </div>
+          </motion.div>
 
-          {/* Projects Grid - Changed to square grid layout with click-to-expand */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Projects Grid */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.15 },
+              },
+            }}
+          >
             {projects.map((project) => (
-              <motion.div key={project.id} layout className="relative group">
+              <motion.div
+                key={project.id}
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                layout
+                className="relative group"
+              >
                 {/* Collapsed Card */}
                 <Card
                   onClick={() => setExpandedCard(project.id)}
@@ -43,7 +69,7 @@ export function ProjectsSection() {
                     <img
                       src={project.image || "/placeholder.svg?height=400&width=400&query=modern mobile app interface"}
                       alt={project.title}
-                       className="w-full aspect-square object-cover "
+                      className="w-full aspect-square object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                       <div>
@@ -61,6 +87,7 @@ export function ProjectsSection() {
                   </div>
                 </Card>
 
+                {/* Expanded Modal */}
                 <AnimatePresence>
                   {expandedCard === project.id && (
                     <motion.div
@@ -80,8 +107,7 @@ export function ProjectsSection() {
                         onClick={(e: { stopPropagation: () => any }) => e.stopPropagation()}
                         className="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto"
                       >
-                        <Card className=" rounded-3xl shadow-2xl overflow-hidden border-2 border-primary/20">
-                         
+                        <Card className="rounded-3xl shadow-2xl overflow-hidden border-2 border-primary/20">
                           <CardContent className="p-8 space-y-6">
                             {/* Close button */}
                             <button
@@ -183,7 +209,7 @@ export function ProjectsSection() {
                 </AnimatePresence>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,3 +1,6 @@
+"use client"
+
+import { motion } from "framer-motion"
 import { Navigation } from "@/components/layout/navigation"
 import { HeroSection } from "@/components/sections/hero-section"
 import { AboutSection } from "@/components/sections/about-section"
@@ -8,7 +11,12 @@ import { ContactSection } from "@/components/sections/contact-section"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background scroll-smooth">
+    <motion.main
+      className="min-h-screen bg-background scroll-smooth"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2, ease: "easeInOut" }}
+    >
       <Navigation />
       <HeroSection />
       <AboutSection />
@@ -16,6 +24,6 @@ export default function Home() {
       <AchievementsSection />
       <SkillsSection />
       <ContactSection />
-    </main>
+    </motion.main>
   )
 }
