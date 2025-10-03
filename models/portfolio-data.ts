@@ -76,7 +76,7 @@ export const projects: Project[] = [
     metrics: ["Built Dec 2024", "Personalized quote generation", "Save & revisit feature"],
     image: "/ProjectImages/GetLine.png",
     featured: false,
-    githubUrl: "https://github.com/Salman1717",
+    githubUrl: "https://github.com/ThePuzzleDev/Quotable",
   },
   {
     id: "immersive-education",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     metrics: ["Development Sep–Nov 2024", "Interactive AR learning modules", "Progress tracking & quizzes"],
     image: "/ProjectImages/ImmersiveEdu.png",
     featured: false,
-    githubUrl: "https://github.com/Salman1717",
+    githubUrl: "https://github.com/ThePuzzleDev/ImmersiveEdu",
   },
   {
     id: "ingregenius",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     metrics: ["Built Jul–Sep 2024", "Ingredient-to-recipe generation", "Hands-free voice mode"],
     image: "/ProjectImages/IngreGenius.png",
     featured: false,
-    githubUrl: "https://github.com/Salman1717",
+    githubUrl: "https://github.com/ThePuzzleDev/IngreGenius-iOS",
   },
 ];
 

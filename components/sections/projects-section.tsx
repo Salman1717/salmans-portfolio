@@ -22,98 +22,162 @@ export function ProjectsSection() {
               <TrendingUp className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-foreground/80">Featured Work</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Projects
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="gradient-text">My Projects</span>
             </h2>
-            <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
-              A collection of applications and experiments I&apos;ve built with passion and creativity.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Showcasing innovative mobile apps with AR, ML, and modern iOS development
             </p>
           </div>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Projects Grid - Changed to square grid layout with click-to-expand */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
-              <motion.div
-                key={project.id}
-                layout
-                className="relative group"
-              >
-                {/* Normal Collapsed Card */}
+              <motion.div key={project.id} layout className="relative group">
+                {/* Collapsed Card */}
                 <Card
                   onClick={() => setExpandedCard(project.id)}
-                  className="overflow-hidden rounded-xl cursor-pointer hover:shadow-lg transition-all"
+                  className="overflow-hidden rounded-2xl cursor-pointer hover:shadow-2xl transition-all duration-300 border-2 border-border hover:border-primary/50"
                 >
                   <div className="relative">
                     <img
-                      src={project.image}
+                      src={project.image || "/placeholder.svg?height=400&width=400&query=modern mobile app interface"}
                       alt={project.title}
-                      className="w-full aspect-square object-cover"
+                       className="w-full aspect-square object-cover "
                     />
-                    {/* Hover Overlay with Project Name */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                      <h3 className="text-white text-lg font-semibold">{project.title}</h3>
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <div>
+                        <h3 className="text-white text-xl font-bold mb-2">{project.title}</h3>
+                        <p className="text-white/80 text-sm">Click to view details</p>
+                      </div>
                     </div>
+                    {/* Featured badge */}
+                    {project.featured && (
+                      <div className="absolute top-4 right-4 bg-yellow-700 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg">
+                        <Star className="h-3 w-3 fill-current" />
+                        Featured
+                      </div>
+                    )}
                   </div>
                 </Card>
 
-                {/* Expanded Card */}
                 <AnimatePresence>
                   {expandedCard === project.id && (
                     <motion.div
                       layout
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.3 }}
-                      className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/60"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+                      onClick={() => setExpandedCard(null)}
                     >
-                      <Card className="relative max-w-2xl w-full rounded-2xl shadow-xl overflow-hidden bg-background">
-                        <CardContent className="p-6 space-y-6">
-                          {/* Square Image */}
-                          <div className="w-full flex justify-center">
-                            <img
-                              src={project.image}
-                              alt={project.title}
-                              className="w-48 h-48 object-cover rounded-xl shadow-md"
-                            />
-                          </div>
-
-                          {/* Title & Close */}
-                          <div className="flex justify-between items-start">
-                            <h3 className="text-2xl font-bold text-primary">{project.title}</h3>
+                      <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.9, opacity: 0 }}
+                        transition={{ duration: 0.3, type: "spring" }}
+                        onClick={(e: { stopPropagation: () => any }) => e.stopPropagation()}
+                        className="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+                      >
+                        <Card className=" rounded-3xl shadow-2xl overflow-hidden border-2 border-primary/20">
+                         
+                          <CardContent className="p-8 space-y-6">
+                            {/* Close button */}
                             <button
                               onClick={() => setExpandedCard(null)}
-                              className="text-muted-foreground hover:text-foreground"
+                              className="absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-colors z-10 bg-background/80 backdrop-blur-sm rounded-full p-2 hover:bg-background"
                             >
                               <X className="w-6 h-6" />
                             </button>
-                          </div>
 
-                          {/* Description */}
-                          <p className="text-muted-foreground leading-relaxed">
-                            {project.description}
-                          </p>
+                            {/* Square Image */}
+                            <div className="w-full flex justify-center">
+                              <img
+                                src={
+                                  project.image ||
+                                  "/placeholder.svg?height=300&width=300&query=modern mobile app interface"
+                                }
+                                alt={project.title}
+                                className="w-64 h-64 object-cover rounded-2xl shadow-lg border-2 border-border"
+                              />
+                            </div>
 
-                          {/* Tags */}
-                          <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech) => (
-                              <Badge key={tech} variant="default">{tech}</Badge>
-                            ))}
-                          </div>
+                            {/* Title with featured badge */}
+                            <div className="flex items-start gap-3">
+                              <h3 className="text-3xl font-bold text-foreground flex-1">{project.title}</h3>
+                              {project.featured && (
+                                <div className="bg-yellow-700 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                                  <Star className="h-3 w-3 fill-current" />
+                                  Featured
+                                </div>
+                              )}
+                            </div>
 
-                          {/* Buttons */}
-                          <div className="flex gap-4">
-                            {project.githubUrl && (
-                              <Button
-                                variant="outline"
-                                onClick={() => openExternalLink(project.githubUrl!)}
-                              >
-                                <Github className="w-4 h-4 mr-2" /> GitHub
-                              </Button>
+                            {/* Description */}
+                            <p className="text-muted-foreground leading-relaxed text-lg">{project.description}</p>
+
+                            {/* Technologies */}
+                            <div>
+                              <h4 className="text-sm font-semibold text-foreground/70 mb-3">Technologies Used</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {project.technologies.map((tech) => (
+                                  <Badge
+                                    key={tech}
+                                    variant="secondary"
+                                    className="px-3 py-1 text-sm font-medium bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors"
+                                  >
+                                    {tech}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Metrics */}
+                            {project.metrics && project.metrics.length > 0 && (
+                              <div>
+                                <h4 className="text-sm font-semibold text-foreground/70 mb-3">Key Achievements</h4>
+                                <div className="space-y-2">
+                                  {project.metrics.map((metric, index) => (
+                                    <div
+                                      key={index}
+                                      className="flex items-center gap-3 text-sm font-medium text-foreground/80"
+                                    >
+                                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                                      {metric}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
                             )}
-                          </div>
-                        </CardContent>
-                      </Card>
+
+                            {/* Action Buttons */}
+                            <div className="flex gap-4 pt-4">
+                              {project.demoUrl && (
+                                <Button
+                                  size="lg"
+                                  onClick={() => openExternalLink(project.demoUrl!)}
+                                  className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+                                >
+                                  <ExternalLink className="h-4 w-4 mr-2" />
+                                  Live Demo
+                                </Button>
+                              )}
+                              {project.githubUrl && (
+                                <Button
+                                  size="lg"
+                                  variant="outline"
+                                  onClick={() => openExternalLink(project.githubUrl!)}
+                                  className="flex-1 border-2 hover:bg-primary/10 font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+                                >
+                                  <Github className="h-4 w-4 mr-2" />
+                                  View Source
+                                </Button>
+                              )}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
                     </motion.div>
                   )}
                 </AnimatePresence>
