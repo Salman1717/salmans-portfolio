@@ -57,6 +57,35 @@ export const personalInfo: PersonalInfo = {
 
 export const projects: Project[] = [
   {
+  id: "uae-retail-forecast",
+  title: "UAE Retail Demand Forecasting Dashboard",
+  description:
+    "A full end-to-end machine learning system built for UAE retailers to forecast daily product demand, detect spike days (Eid, Ramadan, weekends, promotions), and support store-level inventory planning. Features a Streamlit dashboard where users can upload sales data and get instant forecasts, spike probabilities, visual analytics, and downloadable reports. The ML pipeline includes time-series feature engineering, spike classification, dual-regressor forecasting, and a blended prediction layer—trained entirely in Google Colab.",
+  technologies: [
+    "Python",
+    "Streamlit",
+    "XGBoost",
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Scikit-learn",
+    "Google Colab",
+    "Feature Engineering",
+    "Time Series Modeling",
+    "MVVM-style Pipeline Structure"
+  ],
+  metrics: [
+    "Full ML pipeline (Classifier + Dual Regressor Blend)",
+    "UAE-specific weekend & seasonal demand modeling",
+    "Dashboard deployed with automatic fallback model",
+    "Handles 60+ day datasets with full forecasting accuracy"
+  ],
+  image: "/ProjectImages/UAERetailForecast.png",
+  demoUrl: "https://retail-dashboard-b5btlgjtemmsvq6yaxsekr.streamlit.app/",
+  githubUrl: "https://github.com/Salman1717/retail-dashboard",
+  featured: true
+  },
+  {
     id: "medisnap",
     title: "Medi Snap",
     description:

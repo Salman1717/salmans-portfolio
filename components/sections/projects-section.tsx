@@ -32,7 +32,7 @@ export function ProjectsSection() {
               <span className="gradient-text">My Projects</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Showcasing innovative mobile apps with AR, ML, and modern iOS development
+              Showcasing innovative mobile apps, ML, AI/ML Dashboards and modern iOS development
             </p>
           </motion.div>
 
