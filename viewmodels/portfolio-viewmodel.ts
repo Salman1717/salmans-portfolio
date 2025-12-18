@@ -35,7 +35,7 @@ export function usePortfolioViewModel() {
   }, [])
 
   const downloadResume = useCallback(() => {
-    window.open("/resume.pdf", "_blank")
+    window.open("/resume.docx", "_blank")
   }, [])
 
   const openExternalLink = useCallback((url: string) => {

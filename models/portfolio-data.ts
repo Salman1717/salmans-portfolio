@@ -57,6 +57,38 @@ export const personalInfo: PersonalInfo = {
 
 export const projects: Project[] = [
   {
+  id: "churnguard-ai",
+  title: "ChurnGuard AI – Customer Churn Prediction Platform",
+  description:
+    "ChurnGuard AI is a full end-to-end machine learning system designed to help businesses identify customers at high risk of churn and take proactive retention actions. The platform features a production-ready Streamlit dashboard where users can upload customer data and instantly receive churn probabilities, risk segmentation, visual analytics, and explainable AI insights using SHAP. The ML pipeline includes feature engineering on customer behavior, contract patterns, service usage, and payment methods, followed by an XGBoost-based churn classifier optimized for recall. The system emphasizes transparency, business interpretability, and real-world deployment readiness, with a clean UI tailored for both technical and non-technical stakeholders.",
+  technologies: [
+    "Python",
+    "Streamlit",
+    "XGBoost",
+    "Scikit-learn",
+    "Pandas",
+    "NumPy",
+    "SHAP",
+    "Matplotlib",
+    "Explainable AI (XAI)",
+    "Feature Engineering",
+    "Model Deployment",
+    "Production ML Pipelines"
+  ],
+  metrics: [
+    "End-to-end churn prediction pipeline with explainable AI",
+    "Optimized for high recall to capture maximum at-risk customers",
+    "Interactive dashboard with CSV upload and instant predictions",
+    "SHAP-based feature attribution for transparent decision-making",
+    "Production-ready deployment with version-pinned dependencies"
+  ],
+  image: "/ProjectImages/ChurnGuardAI.png",
+  demoUrl: "https://churnpredictionsaimodel.streamlit.app/",
+  githubUrl: "https://github.com/Salman1717/churnprediction",
+  featured: true
+},
+
+  {
   id: "uae-retail-forecast",
   title: "UAE Retail Demand Forecasting Dashboard",
   description:
@@ -83,7 +115,7 @@ export const projects: Project[] = [
   image: "/ProjectImages/UAERetailForecast.png",
   demoUrl: "https://retail-dashboard-b5btlgjtemmsvq6yaxsekr.streamlit.app/",
   githubUrl: "https://github.com/Salman1717/retail-dashboard",
-  featured: true
+  featured: false
   },
   {
     id: "medisnap",
@@ -115,7 +147,7 @@ export const projects: Project[] = [
     technologies: ["Swift", "SwiftUI", "RealityKit / ARKit", "Firebase", "Cloud Firestore"],
     metrics: ["Development Sep–Nov 2024", "Interactive AR learning modules", "Progress tracking & quizzes"],
     image: "/ProjectImages/ImmersiveEdu.png",
-    featured: false,
+    featured: true,
     githubUrl: "https://github.com/ThePuzzleDev/ImmersiveEdu",
   },
   {
@@ -134,68 +166,121 @@ export const projects: Project[] = [
 
 export const skills: Skill[] = [
   {
-    category: "Mobile Development",
+    category: "Core Programming",
     items: [
+      "Python",
       "Swift",
+      "SQL",
+      "JavaScript",
+      "C (basics)"
+    ],
+  },
+  {
+    category: "Machine Learning & Data Science",
+    items: [
+      "scikit-learn",
+      "TensorFlow",
+      "PyTorch",
+      "XGBoost",
+      "Statsmodels",
+      "Prophet",
+      "LSTM / RNNs",
+      "Time-Series Forecasting",
+      "Classification & Regression",
+      "Feature Engineering",
+      "Hyperparameter Tuning",
+      "Cross-Validation",
+      "Model Evaluation & Deployment",
+      "Model Explainability (SHAP)"
+    ],
+  },
+  {
+    category: "Mobile & AR (iOS)",
+    items: [
       "SwiftUI",
+      "UIKit",
+      "Core ML (on-device ML)",
       "Core Data",
       "URLSession",
-      "XCTest",
-      "Swift Package Manager"
-    ],
-  },
-  {
-    category: "AR & ML",
-    items: [
-      "RealityKit",
+      "Async Image Loading",
       "ARKit",
-      "On-device ML (Core ML)",
-      "Python (ML prototyping)",
-      "Model optimization for mobile"
+      "RealityKit",
+      "Vision OCR",
+      "Gemini API Integration",
+      "Model Optimization for Mobile"
     ],
   },
   {
-    category: "Backend & Cloud",
+    category: "Cloud, Backend & APIs",
     items: [
       "Firebase Authentication",
       "Firestore",
       "RESTful APIs",
       "Google Cloud Platform (GCP)",
+      "AWS (S3, EC2)",
+      "Google Calendar API",
+      "Render / Vercel / Railway",
       "Apache Airflow"
     ],
   },
   {
-    category: "Data & Analytics",
+    category: "Data Engineering & Analytics",
     items: [
       "ETL Pipelines",
-      "SQL",
-      "Data Visualization",
       "Pandas",
-      "Great Expectations"
+      "NumPy",
+      "MySQL / PostgreSQL",
+      "Great Expectations",
+      "Data Visualization",
+      "Tableau",
+      "Power BI",
+      "Matplotlib",
+      "Seaborn",
+      "Analytics Dashboards"
     ],
   },
   {
-    category: "Design & Architecture",
-    items: [
-      "MVVM",
-      "MVC",
-      "Scalable Architecture",
-      "Performance Optimization",
-      "Clean Code Principles"
-    ],
-  },
-  {
-    category: "Tools & Platforms",
+    category: "Dev Tools, Testing & CI/CD",
     items: [
       "Xcode",
-      "GitHub",
-      "Visual Studio Code",
+      "Git / GitHub",
       "TestFlight",
       "App Store Connect",
-      "PyCharm"
+      "XCTest (Unit & UI testing)",
+      "Fastlane (CI basics)",
+      "Docker (basic)",
+      "Jupyter / Google Colab",
+      "Streamlit",
+      "PyCharm / VSCode"
+    ],
+  },
+  {
+    category: "Architecture & Engineering Practices",
+    items: [
+      "MVVM / MVC",
+      "Scalable Architecture",
+      "Performance Optimization",
+      "Clean Code Principles",
+      "Agentic Workflow Patterns (sense→think→act)",
+      "Agile / Scrum",
+      "Versioning & Code Reviews"
+    ],
+  },
+  {
+    category: "Professional & Soft Skills",
+    items: [
+      "Communication (technical → non-technical)",
+      "Team Collaboration",
+      "Problem-Solving",
+      "Product Mindset",
+      "Mentoring",
+      "Time Management",
+      "Adaptability",
+      "Attention to Detail"
     ],
   },
 ];
+
 
 
 export const experiences: Experience[] = [
