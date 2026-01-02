@@ -57,6 +57,36 @@ export const personalInfo: PersonalInfo = {
 
 export const projects: Project[] = [
   {
+  id: "pulsetrack-architecture-demo",
+  title: "PulseTrack – SwiftUI Architecture & Concurrency Demo",
+  description:
+    "PulseTrack is an architecture-focused SwiftUI project built to demonstrate how modern iOS applications should be structured using MVVM, async/await, structured concurrency, and actor-based data safety. Rather than being a feature-heavy app, PulseTrack serves as a clean architectural walkthrough, showcasing correct UI–ViewModel separation, task lifecycle management, error handling, and XCTest-ready design. The project is intentionally simple in UI and rich in structure, making it ideal for technical discussions and interview walkthroughs.",
+  technologies: [
+    "Swift",
+    "SwiftUI",
+    "MVVM Architecture",
+    "Async/Await",
+    "Structured Concurrency",
+    "Actors",
+    "@MainActor",
+    "XCTest (Async Testing)",
+    "Protocol-Oriented Programming",
+    "Dependency Injection"
+  ],
+  metrics: [
+    "MVVM-based SwiftUI architecture with strict separation of concerns",
+    "Parallel async data fetching using async let",
+    "Explicit task cancellation tied to SwiftUI lifecycle",
+    "Actor-based state management to prevent data races",
+    "Typed error handling with retry-driven UI states",
+    "XCTest-ready ViewModel design with async test support"
+  ],
+  image: "/ProjectImages/PulseTrack.png",
+  githubUrl: "https://github.com/Salman1717/PulseTrack",
+  featured: false
+},
+
+  {
   id: "churnguard-ai",
   title: "ChurnGuard AI – Customer Churn Prediction Platform",
   description:
